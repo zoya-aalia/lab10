@@ -2,10 +2,10 @@ Development Project Features List Template
 
 Final Overall System Features	Category	Possible Points	Points	Comments / Code Files
 Documentation 3/15
-Executive Summary (up to 1 page)	 Core:	/2		
-System Features (2 pages)	Core	/2		
+Executive Summary (up to 1 page)	 Core:	/2 			-Z
+System Features (2 pages)	Core	/2	   			-Z	
 List of Web and AI sources used	Core	3/3		
-Walkthrough with screenshots (up to 15 pages)	Core	/8		
+Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z	
 
 Hosting /10
 Running on cloud server	Advanced	/10		
