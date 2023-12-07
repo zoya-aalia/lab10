@@ -12,13 +12,13 @@ Running on cloud server	Advanced	/10
 
 Main/Home Page 3/14
 Search for a product by name	Core	1/1	
-Browse products by category	Core	/1		
+Browse products by category	Core	/1	-A/Z?	
 List products (by search/browse)	Core	1/1	
-List products with image	Core	/1		
+List products with image	Core	/1	-A/Z?	
 Page header with menu	Basic	1/1	
-Page header shows current logged in user	Basic	/1		
+Page header shows current logged in user	Basic	/1	-A	
 Dynamic products on page based on sales	Basic	/2		
-Improved UI (user-friendly, images, etc.)	Basic	/2		
+Improved UI (user-friendly, images, etc.)	Basic	/2	-A?	
 Product recommendation based on user	Advanced	/4		
 
 Shopping Cart 3/8
@@ -55,19 +55,19 @@ Display product review on product detail page	Basic	/1
 Restrict to one review per user on item purchased	Advanced	/2		
 
 Warehouses/Inventory /5
-Display item inventory by store/warehouse	Basic 	/2		
+Display item inventory by store/warehouse	Basic 	/2	-A?	
 Edit item inventory by store/warehouse	Advanced	/3		
 
 Administrator Portal 2/19				
 Secured by login	Core	1/1	
-List all customers	Core	/1		
+List all customers	Core	/1	-A	
 List report showing total sales/orders	Core	1/1		
 Report with a graph	Advanced	/3		
-Add new product	Basic	/2		
-Update/delete product	Basic	/2		
-Change order status/ship order	Basic	/1		
+Add new product	Basic	/2	-A?	
+Update/delete product	Basic	/2	-A?
+Change order status/ship order	Basic	/1	-A?	
 Upload a photo to file system for product	Advanced	/2		
-OR: Upload a photo to database for product	Advanced	/4		
+OR: Upload a photo to database for product	Advanced	/4	-A/Z?	
 Database restore with SQL script	Basic	/2		
 Add/update warehouse, customer	Basic	/2		
 				
