@@ -10,44 +10,44 @@ Walkthrough with screenshots (up to 15 pages)	Core	/8
 Hosting /10
 Running on cloud server	Advanced	/10		
 
-Main/Home Page /14
-Search for a product by name	Core	/1		
+Main/Home Page 3/14
+Search for a product by name	Core	1/1		
 Browse products by category	Core	/1		
-List products (by search/browse)	Core	/1		
+List products (by search/browse)	Core	1/1		
 List products with image	Core	/1		
-Page header with menu	Basic	/1		
+Page header with menu	Basic	1/1		
 Page header shows current logged in user	Basic	/1		
 Dynamic products on page based on sales	Basic	/2		
 Improved UI (user-friendly, images, etc.)	Basic	/2		
 Product recommendation based on user	Advanced	/4		
 
-Shopping Cart /8
-Add to shopping cart	Core	/1		
-View shopping cart	Core	/1		
+Shopping Cart 3/8
+Add to shopping cart	Core	1/1		
+View shopping cart	Core	1/1		
 Update quantity (with data validation)	Basic	/1		
-Remove item from shopping cart	Basic	/1		
+Remove item from shopping cart	Basic	1/1		
 Improved formatting/UI (e.g. in header bar)	Basic	/1		
 Cart stored in database between sessions	Basic	/3		
 
-Checkout /9
-Checkout with customer id	Core	/1		
+Checkout 1/9
+Checkout with customer id	Core	1/1		
 Checkout with payment/shipment info	Basic	/2		
 Checkout with data validation	Basic	/2		
 Multiple shipments per order supported	Advanced	/2		Note: Requires DB change.
 Calculate taxes/shipping (by items/state)	Advanced	/2		Note: Requires DB change.
 
-Product Detail Page /2
-Product detail page and item description	Core	/1		
-Product detail has an image from database	Core	/1		
+Product Detail Page 2/2
+Product detail page and item description	Core	1/1		
+Product detail has an image from database	Core	1/1		
 
  
-User Accounts/Login /12
-Create user account page	Basic	/2		
+User Accounts/Login 4/12
+Create user account page	Basic	2/2		
 Create account with data validation	Basic	/2		
 Edit user account info (address, password)	Basic	/2		
-Login/logout	Core	/1		
+Login/logout	Core	1/1		
 Register user/Forgot password email	Advanced	/4		
-Page listing all orders for user	Core	/1		
+Page listing all orders for user	Core	1/1		
 
 Product Reviews /5
 Ability to enter a review on a product	Basic	/2		
@@ -58,10 +58,10 @@ Warehouses/Inventory /5
 Display item inventory by store/warehouse	Basic 	/2		
 Edit item inventory by store/warehouse	Advanced	/3		
 
-Administrator Portal /19				
-Secured by login	Core	/1		
+Administrator Portal 2/19				
+Secured by login	Core	1/1		
 List all customers	Core	/1		
-List report showing total sales/orders	Core	/1		
+List report showing total sales/orders	Core	1/1		
 Report with a graph	Advanced	/3		
 Add new product	Basic	/2		
 Update/delete product	Basic	/2		
@@ -80,5 +80,5 @@ Others (your suggestions)		/5
 				
 				
 				
-Total: (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
+Total: 15 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
 
