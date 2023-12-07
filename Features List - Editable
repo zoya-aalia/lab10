@@ -16,7 +16,7 @@ Browse products by category	Core	/1				-A/Z?
 List products (by search/browse)	Core	1/1			done
 List products with image	Core	/1				-A/Z?	
 Page header with menu	Basic						done	
-Page header shows current logged in user	Basic	/1		-A	
+Page header shows current logged in user	Basic	/1		done	
 Dynamic products on page based on sales	Basic	/2			-Z	
 Improved UI (user-friendly, images, etc.)	Basic	/2		-A?	
 Product recommendation based on user	Advanced	/4		-Z?		
@@ -80,5 +80,5 @@ Others (your suggestions)		/5
 				
 				
 				
-Total: 18 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
+Total: 19 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
 
