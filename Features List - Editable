@@ -7,10 +7,10 @@ Documentation 7/15
 Executive Summary (up to 1 page)	 Core:	2/2 			done
 System Features (2 pages)	Core	2/2	   			done	
 List of Web and AI sources used	Core	3/3				done				
-Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z		* prepped already	
+Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z		* prepped already	//needed for full marks
 
 Hosting /10
-Running on cloud server	Advanced	/10				-Z
+Running on cloud server	Advanced	/10				-Z	//needed for full marks 
 
 Main/Home Page 4/14
 Search for a product by name	Core	1/1				done				
@@ -28,12 +28,12 @@ Add to shopping cart	Core	1/1					done
 View shopping cart	Core	1/1					done
 Update quantity (with data validation)	Basic	/1			-
 ~~Remove item from shopping cart	Basic	1/1			done
-Improved formatting/UI (e.g. in header bar)	Basic	/1		-Z		*updated showcart.jsp	
+Improved formatting/UI (e.g. in header bar)	Basic	/1		-Z		*updated showcart.jsp	-bug fixes A
 Cart stored in database between sessions	Basic	/3		-		
 
 Checkout 1/9
 Checkout with customer id	Core	1/1				done
-Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp
+Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp //not necessary for full marks
 Checkout with data validation	Basic	/2				-
 Multiple shipments per order supported	Advanced	/2		-		Note: Requires DB change.
 Calculate taxes/shipping (by items/state)	Advanced	/2	-		Note: Requires DB change.
