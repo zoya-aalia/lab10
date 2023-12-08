@@ -77,11 +77,10 @@ else
 			out.println("Invalid quantity for product: "+product.get(0)+" quantity: "+qty);
 		}	
 
-		out.print("<td><input type='text' name='newqty1' size='3' value='" + qty + "'></td>");
+		out.print("<td align=\"right\">"+qty+"</td>");
 		out.print("<td align=\"right\">"+currFormat.format(pr)+"</td>");
 		out.print("<td align=\"right\">"+currFormat.format(pr*qty)+"</td>");
 		out.print("<td><a href='showcart.jsp?delete=" + product.get(0) + "' style='color:#769d6d'>Remove Item from Cart</a></td>");
-		out.print("<td><input type='BUTTON' onclick='update(1, document.form1.newqty1.value)' value='Update Quantity'></td></tr>");
 		total = total +pr*qty;
 	}
 	out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
