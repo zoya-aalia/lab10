@@ -4,28 +4,28 @@ Development Project Features List Template
 
 Final Overall System Features	Category	Possible Points	Points	Comments / Code Files
 Documentation 7/15
-Executive Summary (up to 1 page)	 Core:	/2 			done
-System Features (2 pages)	Core	/2	   			done	
-List of Web and AI sources used	Core	/3				done				
+Executive Summary (up to 1 page)	 Core:	2/2 			done
+System Features (2 pages)	Core	2/2	   			done	
+List of Web and AI sources used	Core	3/3				done				
 Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z		* prepped already	
 
 Hosting /10
 Running on cloud server	Advanced	/10				-Z
 
-Main/Home Page 3/14
-Search for a product by name	Core	/1				done				
-Browse products by category	Core	/1				-Z		* updated listprod.jsp	
+Main/Home Page 4/14
+Search for a product by name	Core	1/1				done				
+Browse products by category	Core	/1				-Z		* updated listprod.jsp	-bug fixes A
 List products (by search/browse)	Core	1/1			done	
-List products with image	Core	/1				-Z		* updated listprod.jsp	
-Page header with menu	Basic						done	
-Page header shows current logged in user	Basic	/1		done	
+List products with image	Core	/1				-Z		* updated listprod.jsp	-bug fixes A
+Page header with menu	Basic	1/1					done	
+Page header shows current logged in user	Basic	1/1		done	
 Dynamic products on page based on sales	Basic	/2			-Z	
 Improved UI (user-friendly, images, etc.)	Basic	/2		-A?	
 Product recommendation based on user	Advanced	/4		-Z?		
 
 Shopping Cart 3/8
-Add to shopping cart	Core						done	
-View shopping cart	Core						done
+Add to shopping cart	Core	1/1					done	
+View shopping cart	Core	1/1					done
 Update quantity (with data validation)	Basic	/1			-
 ~~Remove item from shopping cart	Basic	1/1			done
 Improved formatting/UI (e.g. in header bar)	Basic	/1		-Z		*updated showcart.jsp	
@@ -47,7 +47,7 @@ User Accounts/Login 4/12
 Create user account page	Basic	2/2				done
 Create account with data validation	Basic	/2		
 Edit user account info (address, password)	Basic	/2		
-Login/logout	Core	1/1		
+Login/logout	Core	1/1						done	
 Register user/Forgot password email	Advanced	/4		
 Page listing all orders for user	Core	1/1			done
 
@@ -82,5 +82,5 @@ Others (your suggestions)		/5
 				
 				
 				
-Total: 19 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
+Total: 23 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
 
