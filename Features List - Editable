@@ -16,24 +16,24 @@ Main/Home Page 4/14
 Search for a product by name	Core	1/1				done				
 Browse products by category	Core	/1				-Z		* updated listprod.jsp	-bug fixes A
 List products (by search/browse)	Core	1/1			done	
-List products with image	Core	/1				-Z		* updated listprod.jsp	-bug fixes A
+List products with image	Core	/1				-Z		//not necessary for full marks
 Page header with menu	Basic	1/1					done	
 Page header shows current logged in user	Basic	1/1		done	
 Dynamic products on page based on sales	Basic	/2			-Z	
 Improved UI (user-friendly, images, etc.)	Basic	/2		-A?	
 Product recommendation based on user	Advanced	/4		-Z?		
 
-Shopping Cart 3/8
+Shopping Cart 4/8
 Add to shopping cart	Core	1/1					done	
 View shopping cart	Core	1/1					done
 Update quantity (with data validation)	Basic	/1			-
 ~~Remove item from shopping cart	Basic	1/1			done
-Improved formatting/UI (e.g. in header bar)	Basic	/1		-Z		*updated showcart.jsp	-bug fixes A
+Improved formatting/UI (e.g. in header bar)	Basic	1/1		done		
 Cart stored in database between sessions	Basic	/3		-		
 
 Checkout 1/9
 Checkout with customer id	Core	1/1				done
-Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp //not necessary for full marks
+Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp
 Checkout with data validation	Basic	/2				-
 Multiple shipments per order supported	Advanced	/2		-		Note: Requires DB change.
 Calculate taxes/shipping (by items/state)	Advanced	/2	-		Note: Requires DB change.
