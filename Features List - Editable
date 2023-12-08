@@ -12,31 +12,31 @@ Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z		* prepped already	//n
 Hosting /10
 Running on cloud server	Advanced	/10				-Z	//needed for full marks 
 
-Main/Home Page 4/14
+Main/Home Page 5/14
 Search for a product by name	Core	1/1				done				
-Browse products by category	Core	/1				-Z		* updated listprod.jsp	-bug fixes A
+Browse products by category	Core	1/1				done
 List products (by search/browse)	Core	1/1			done	
 List products with image	Core	/1				-Z		//not necessary for full marks
 Page header with menu	Basic	1/1					done	
 Page header shows current logged in user	Basic	1/1		done	
-Dynamic products on page based on sales	Basic	/2			-Z	
-Improved UI (user-friendly, images, etc.)	Basic	/2		-A?	
-Product recommendation based on user	Advanced	/4		-Z?		
+Dynamic products on page based on sales	Basic	/2				
+Improved UI (user-friendly, images, etc.)	Basic	/2			
+Product recommendation based on user	Advanced	/4				
 
 Shopping Cart 4/8
 Add to shopping cart	Core	1/1					done	
 View shopping cart	Core	1/1					done
-Update quantity (with data validation)	Basic	/1			-
+Update quantity (with data validation)	Basic	/1			
 ~~Remove item from shopping cart	Basic	1/1			done
 Improved formatting/UI (e.g. in header bar)	Basic	1/1		done		
-Cart stored in database between sessions	Basic	/3		-		
+Cart stored in database between sessions	Basic	/3				
 
 Checkout 1/9
 Checkout with customer id	Core	1/1				done
 Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp
-Checkout with data validation	Basic	/2				-
-Multiple shipments per order supported	Advanced	/2		-		Note: Requires DB change.
-Calculate taxes/shipping (by items/state)	Advanced	/2	-		Note: Requires DB change.
+Checkout with data validation	Basic	/2				
+Multiple shipments per order supported	Advanced	/2				Note: Requires DB change.
+Calculate taxes/shipping (by items/state)	Advanced	/2			Note: Requires DB change.
 
 Product Detail Page 2/2
 Product detail page and item description	Core	1/1		done
@@ -57,19 +57,19 @@ Display product review on product detail page	Basic	/1
 Restrict to one review per user on item purchased	Advanced  /2		
 
 Warehouses/Inventory /5
-Display item inventory by store/warehouse	Basic 	/2		-A?	
+Display item inventory by store/warehouse	Basic 	/2			
 Edit item inventory by store/warehouse	Advanced	/3		
 
 Administrator Portal 2/19				
 Secured by login	Core	1/1					done
-List all customers	Core	/1					-A	
+List all customers	Core	/1						
 List report showing total sales/orders	Core	1/1			done
-Report with a graph	Advanced	/3				-Z?
-Add new product	Basic	/2						-A?	
-Update/delete product	Basic	/2					-A?
-Change order status/ship order	Basic	/1				-A?	
+Report with a graph	Advanced	/3				
+Add new product	Basic	/2							
+Update/delete product	Basic	/2					
+Change order status/ship order	Basic	/1					
 Upload a photo to file system for product	Advanced	/2		
-OR: Upload a photo to database for product	Advanced	/4	-A/Z?	
+OR: Upload a photo to database for product	Advanced	/4		
 Database restore with SQL script	Basic	/2		
 Add/update warehouse, customer	Basic	/2		
 				
@@ -82,5 +82,5 @@ Others (your suggestions)		/5
 				
 				
 				
-Total: 23 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
+Total: 24 (out of 50 with maximum of 10 bonus marks. i.e. 60 points out of 50 is max.)				
 
