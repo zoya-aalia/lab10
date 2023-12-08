@@ -2,8 +2,7 @@
 <html>
 <%@ include file="header.jsp"%>
 <style>
-        h1 {color:#1baa82;}
-        h2 {color:black;}
+        h1 {color:black;}
 </style>
 <head>
 <title>A to Z's Nursery Checkout Line</title>
@@ -76,4 +75,5 @@
 
 </body>
 </html>
+
 
