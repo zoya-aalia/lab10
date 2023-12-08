@@ -24,14 +24,28 @@ else {
 </head>
 <body>
 
-<h2>Search for the products you want to buy:</h2>
+<h2>Search all products:</h2>
 <form method="get" action="listprod.jsp">
 <input type="text" name="productName" size="50">
-<input type="submit" value="Submit">
-<input type="reset" value="Reset"> (Leave blank for all products)
+<input type="submit" value="Search">
+<input type="reset" value="Reset"> 
+<p>(Leave blank for all products)</p>
 </form>
 
-<h2>Filter by catrgory:</h2>
+<hr>
+
+<h2>Find New Bestsellers!</h2>
+<form method="get" action="listprod.jsp">
+	<input type="hidden" name="productName" value="">
+	<button type="submit" name="categoryId" value="1">All</button>
+	<button type="submit" name="categoryId" value="2">Bestsellers</button>
+	<button type="submit" name="categoryId" value="1">Houseplants</button>
+	<button type="submit" name="categoryId" value="2">Gardening Products</button>
+</form>
+
+<hr>
+
+<h2>Filter by category:</h2>
 <form method="get" action="listprod.jsp">
 	<input type="hidden" name="productName" value="">
 	<button type="submit" name="categoryId" value="1">Flowers</button>
@@ -40,12 +54,20 @@ else {
 	<button type="submit" name="categoryId" value="2">Gardening Products</button>
 </form>
 
-<h2>Filter by image:</h2>
+<hr>
+
+<h2>Filter by option:</h2>
 <form method="get" action="listprod.jsp">
-	<input type="hidden" name="productName" value="">
-    <input type="hidden" name="hasImage" value="1">
-    <input type="submit" value="Products with Images">
+    <input type="hidden" name="productName" value="">
+    <select name="filterOption">
+        <option value="default">Select an option</option>
+        <option value="bestSelling">Best-Selling Products</option>
+        <option value="hasImage">Products with Images</option>
+    </select>
+    <input type="submit" value="Apply Filter">
 </form>
+
+<hr>
 
 <% 
 // Variable name now contains the search string the user entered
@@ -57,8 +79,9 @@ String name = String.valueOf(request.getParameter("productName"));
 // Get category to filter
 String categoryId = String.valueOf(request.getParameter("categoryId"));
 
-// Check if filtering by products with images
-String hasImage = String.valueOf(request.getParameter("hasImage"));
+// Check filter option
+String filterOption = String.valueOf(request.getParameter("filterOption"));
+
 
 //Note: Forces loading of SQL Server driver
 
@@ -114,7 +137,49 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
                         "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
             }
         }
-	} else if ("1".equals(hasImage)) {
+	} 
+	if ("bestSelling".equals(filterOption)) {
+		String bestSellingQuery = "SELECT TOP 5 productId, SUM(totalAmount) AS totalSales " +
+				"FROM ordersummary " +
+				"GROUP BY productId " +
+				"ORDER BY totalSales DESC";
+		PreparedStatement bestSellingStatement = connection.prepareStatement(bestSellingQuery);
+		ResultSet bestSellingResultSet = bestSellingStatement.executeQuery();
+	
+		out.println("<h2>Best-Selling Products</h2>");
+		out.println("<table border=\"1\"><th> </th>");
+		out.println("<th>Product Name</th>");
+		out.println("<th>Total Sales</th>");
+	
+		while (bestSellingResultSet.next()) {
+			int productId = bestSellingResultSet.getInt("productId");
+			double totalSales = bestSellingResultSet.getDouble("totalSales");
+	
+			// Fetch the product information using productId and display it
+			// You need to have another query to get product details based on the productId
+	
+			// Example placeholder:
+			String productDetailsQuery = "SELECT productName FROM product WHERE productId = ?";
+			PreparedStatement productDetailsStatement = connection.prepareStatement(productDetailsQuery);
+			productDetailsStatement.setInt(1, productId);
+			ResultSet productDetailsResultSet = productDetailsStatement.executeQuery();
+	
+			if (productDetailsResultSet.next()) {
+				String productName = productDetailsResultSet.getString("productName");
+	
+				out.println("<tr><td>" + productName + "</td><td>" + totalSales + "</td></tr>");
+			}
+	
+			// Close the product details ResultSet and Statement
+			productDetailsResultSet.close();
+			productDetailsStatement.close();
+		}
+	
+		// Close the best-selling ResultSet and Statement
+		bestSellingResultSet.close();
+		bestSellingStatement.close();
+	
+	}else if ("hasImage".equals(filterOption)) {
         String productQuery = "SELECT * FROM product WHERE productImage IS NOT NULL";
     	PreparedStatement productStatement = connection.prepareStatement(productQuery);
     	ResultSet productResultSet = productStatement.executeQuery();
@@ -151,7 +216,7 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
             productStatement.setString(1, "%" + name + "%");
             ResultSet productResultSet = productStatement.executeQuery();
 
-            out.println("<h2>Product's Containing '" + name + "'</h2>");
+            out.println("<h2>Product Search: '" + name + "'</h2>");
             out.println("<table border=\"1\"><th> </th>");
             out.println("<th>Product Name</th>");
             out.println("<th>Price</th>");
