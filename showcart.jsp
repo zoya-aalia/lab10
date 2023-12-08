@@ -32,8 +32,9 @@ else {
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
-if (productList == null)
-{	out.println("<h2>Your shopping cart is empty!</h2>");
+if (productList == null || productList.isEmpty())
+{	out.println("<h2>A to Z's Shopping Cart</h2>");
+	out.println("<h2>Your shopping cart is empty!</h2>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -41,7 +42,7 @@ else
 	NumberFormat currFormat = NumberFormat.getCurrencyInstance();
 
 	out.println("<h2>Your Shopping Cart</h2>");
-	out.print("<table><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
+	out.print("<table border = '1'><tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
 	out.println("<th>Price</th><th>Subtotal</th></tr>");
 
 	double total =0;
@@ -86,8 +87,7 @@ else
 	out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");
-
-	out.println("<h2><a href='checkout.jsp' style='color:#769d6d'>Check Out</a></h2>");
+	out.println("<h2><a href='checkout.jsp' style='display: inline-block; padding: 10px 20px; background-color:#769d6d; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #769d6d;'>Contiue to Check Out!</a></h2>");
 
 	String deleteProductId = request.getParameter("delete");
    	if (deleteProductId != null) {
@@ -97,6 +97,6 @@ else
    	}
 }
 %>
-<h2><a href="listprod.jsp" style="color:#769d6d">Continue Shopping</a></h2>
+<h2><a href="listprod.jsp" style="display: inline-block; padding: 10px 20px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #5a7a53;">Continue Shopping</a></h2>
 </body>
 </html> 
