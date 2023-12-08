@@ -24,7 +24,7 @@ else {
         h2 {color:black;}
 </style>
 <head>
-<title>A & Z's Grocery Order Processing</title>
+<title>A to Z's Nursery Order Processing</title>
 </head>
 <body>
 
@@ -32,11 +32,23 @@ else {
 // Get customer id
 String custId = request.getParameter("customerId");
 String password = request.getParameter("password");
+// Get shipment
+String address = request.getParameter("address");
+String city = request.getParameter("city");
+String state = request.getParameter("state");
+String postalCode = request.getParameter("postalCode");
+String country = request.getParameter("country");
+// Get payment 
+String paymentType = request.getParameter("paymentType);
+String paymentNumber = request.getParameter("paymentNumber");
+String paymentExpiryDate = request.getParameter("paymentExpiryDate");
+
+
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
-// Check if valid customer id was entered and if there are products in the shopping cart
-if (custId != null && productList != null && password != null && !productList.isEmpty()) {
+// Check if valid information was entered and if there are products in the shopping cart
+if (custId != null && productList != null && password != null && !productList.isEmpty() && address != null && city != null && state != null && postalCode != null && country != null && paymentType != null && paymentNumber!= null && paymentExpiryDate != null) {
     
     // Initialize Variables
     String url = "jdbc:sqlserver://cosc304_sqlserver:1433;DatabaseName=orders;TrustServerCertificate=True";
@@ -54,6 +66,9 @@ if (custId != null && productList != null && password != null && !productList.is
     // Initialize orderId
     int orderId = 0;
 
+    // initialize paymentID 
+    int paymentMethodId = 0;
+
     //Connect to server
     try (Connection connection = DriverManager.getConnection(url, uid, pw); Statement stmt = connection.createStatement();) {
 
@@ -61,7 +76,7 @@ if (custId != null && productList != null && password != null && !productList.is
         connection.setAutoCommit(false);
 
         try {
-            //Verify customer id is connected to a user and that password matches
+            //1. Verify customer id is connected to a user and that password matches
             String checkIdQuery = "SELECT firstName, lastName, password FROM customer WHERE customerId = ?";
             PreparedStatement checkIdStatement = connection.prepareStatement(checkIdQuery);
             checkIdStatement.setString(1, custId);
@@ -79,7 +94,27 @@ if (custId != null && productList != null && password != null && !productList.is
 
             if (!first.isEmpty() && !last.isEmpty() && pass.equals(password)) {
 
-                //Save order info to db
+                //Save shipment info to customer table
+                String shipmentInsertCustQuery = "INSERT OR REPLACE INTO customer (address, city, state, postalCode, country) VALUES (?, ?, ?, ?, ?) WHERE customerId = ?";
+                PreparedStatement shipmentStmt = connection.prepareStatement(shipmentInsertCustQuery);
+                shipmentStmt.setInt(1, Integer.parseInt(custId));
+                shipmentStmt.setString(2, address);
+                shipmentStmt.setString(3, city);
+                shipmentStmt.setString(4, state);
+                shipmentStmt.setString(5, postalCode);
+                shipmentStmt.setString(6, country);
+                shipmentStmt.executeUpdate();
+
+                //Save payment info to paymentmethod table
+                String paymentInsertQuery = "INSERT OR REPLACE INTO paymentMethod(customerId, paymentType, paymentNumber, paymentExpiryDate) VALUES (?,?,?,?) WHERE customerId = ?";
+                PreparedStatement paymentStmt = connection.prepareStatement(paymentInsertQuery, Statement.RETURN_GENERATED_KEYS);
+                paymentStmt.setInt(1, Integer.parseInt(custId));
+                paymentStmt.setString(2, paymentType);
+                paymentStmt.setString(3, paymentNumber);
+                paymentStmt.setString(4, paymentExpiryDate);
+                paymentStmt.executeUpdate();
+
+                //Save order info to ordersummary table
                 String orderInsertQuery = "INSERT INTO orderSummary (customerId, orderDate, totalAmount) VALUES (?, GETDATE(), ?)";
                 PreparedStatement orderStmt = connection.prepareStatement(orderInsertQuery, Statement.RETURN_GENERATED_KEYS);
                 orderStmt.setInt(1, Integer.parseInt(custId));
@@ -133,7 +168,8 @@ if (custId != null && productList != null && password != null && !productList.is
                     connection.commit();
 
                     //Print order summary
-				    out.println("<h2>Your Order Summary</h2>");
+				    out.println("<h2>Your order has been received! Continue below to finalize shipment.</h2>");
+                    out.println("<h2>Order Summary</h2>");
                     out.println("<table><th>Product Id</th>");
 				    out.println("<th>Product Name</th>");
 				    out.println("<th>Quantity</th>");
@@ -154,11 +190,11 @@ if (custId != null && productList != null && password != null && !productList.is
 
 				    out.println("</table>");
 				    out.println("<p>Total Amount: " + NumberFormat.getCurrencyInstance().format(totalAmount) + "</p>");
-				    out.println("<h2>Order completed. Will be shipped soon...</h2>");
-				    out.println("<h2>Your order reference number is: " + orderId + "</h2>");
-				    out.println("<h2>Shipping to Customer: " + custId + ", Name: " + first + " " + last + "</h2>");
+				    out.println("<h2>Order reference number: " + orderId + "</h2>");
+				    out.println("<h2>Customer Information | ID: " + custId + ", Name: " + first + " " + last + "</h2>");
+                    out.println("<h2>Shipping Information | Country: " + country + ", State: " + state + ", City: " + city + ", Address: " + address + ", Postal Code: " + postalCode + "</h2>);
 
-                    out.println("<h2><a href='ship.jsp?orderId=" + orderId + "' style='color:#769d6d'>Continue to Shipment</a></h2>");
+                    out.println("<h2><a href='ship.jsp?orderId=" + orderId + "' style='color:#769d6d'>Continue to Finalize Shipment</a></h2>");
                 }
             }
             else {
@@ -182,7 +218,7 @@ if (custId != null && productList != null && password != null && !productList.is
 } 
 else {
     // Error message if customer id or shopping cart is invalid
-    out.println("<p>Error: Invalid customer id or no items in the shopping cart</p>");
+    out.println("<p>Error: Invalid information or no items in the shopping cart. Please be sure that all fields are answered</p>");
 }
 %>
 </BODY>
