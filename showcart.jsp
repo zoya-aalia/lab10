@@ -18,14 +18,14 @@ else {
     <%
 }
 %>
-<style>
-        h1 {color:#1baa82;}
+<style >
+        h1 {color:#a06296;}
         h2 {color:black;}
 </style>
 <head>
 <title>A & Z's Shopping Cart</title>
 </head>
-<body>
+<body style="font-family:'Optima'">
 
 <%
 // Get the current list of products
@@ -33,8 +33,8 @@ else {
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
 if (productList == null || productList.isEmpty())
-{	out.println("<h2>A to Z's Shopping Cart</h2>");
-	out.println("<h2>Your shopping cart is empty!</h2>");
+{	out.println("<h2 align='center'>A to Z's Shopping Cart</h2>");
+	out.println("<h2 align='center'>Your shopping cart is empty!</h2>");
 	productList = new HashMap<String, ArrayList<Object>>();
 }
 else
@@ -97,6 +97,6 @@ else
    	}
 }
 %>
-<h2><a href="listprod.jsp" style="display: inline-block; padding: 10px 20px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #5a7a53;">Continue Shopping</a></h2>
+<h2 align="center" ><a href="listprod.jsp" style="display: inline-block; padding: 10px 20px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Continue Shopping</a></h2>
 </body>
 </html> 
