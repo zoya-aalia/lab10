@@ -25,7 +25,6 @@ else {
 <body>
 
 <h2>Search for the products you want to buy:</h2>
-
 <form method="get" action="listprod.jsp">
 <input type="text" name="productName" size="50">
 <input type="submit" value="Submit">
@@ -41,6 +40,13 @@ else {
 	<button type="submit" name="categoryId" value="2">Gardening Products</button>
 </form>
 
+<h2>Filter by image:</h2>
+<form method="get" action="listprod.jsp">
+	<input type="hidden" name="productName" value="">
+    <input type="hidden" name="hasImage" value="1">
+    <input type="submit" value="Products with Images">
+</form>
+
 <% 
 // Variable name now contains the search string the user entered
 // Use it to build a query and print out the resultset.  Make sure to use PreparedStatement!
@@ -49,7 +55,10 @@ else {
 String name = String.valueOf(request.getParameter("productName"));
 
 // Get category to filter
-String category = String.valueOf(request.getParameter("categoryId"));
+String categoryId = String.valueOf(request.getParameter("categoryId"));
+
+// Check if filtering by products with images
+String hasImage = String.valueOf(request.getParameter("hasImage"));
 
 //Note: Forces loading of SQL Server driver
 
@@ -88,6 +97,34 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
         out.println("<th>Price</th>");
 
         // Print ResultSet
+        while (productResultSet.next()) {
+            int productId = productResultSet.getInt("productId");
+            String productName = productResultSet.getString("productName");
+            double productPrice = productResultSet.getDouble("productPrice");
+
+            if (session.getAttribute("authenticatedUser") != null) {
+                // Create links for each product
+                out.println("<tr><td><a href='addcart.jsp?logged=True&id=" + productId +
+                        "&name=" + URLEncoder.encode(productName, "UTF-8") +
+                        "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?logged=True&id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
+            } else {
+                // Create links for each product
+                out.println("<tr><td><a href='addcart.jsp?id=" + productId +
+                        "&name=" + URLEncoder.encode(productName, "UTF-8") +
+                        "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
+            }
+        }
+	} else if ("1".equals(hasImage)) {
+        String productQuery = "SELECT * FROM product WHERE productImage IS NOT NULL";
+    	PreparedStatement productStatement = connection.prepareStatement(productQuery);
+    	ResultSet productResultSet = productStatement.executeQuery();
+
+    	out.println("<h2>Products with Images</h2>");
+    	out.println("<table border=\"1\"><th> </th>");
+    	out.println("<th>Product Name</th>");
+    	out.println("<th>Price</th>");
+
+		// Print ResultSet
         while (productResultSet.next()) {
             int productId = productResultSet.getInt("productId");
             String productName = productResultSet.getString("productName");
