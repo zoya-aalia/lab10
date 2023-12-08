@@ -3,17 +3,17 @@ Development Project Features List Template
 **updated DDL to be plant nursery, on repo
 
 Final Overall System Features	Category	Possible Points	Points	Comments / Code Files
-Documentation 3/15
+Documentation 7/15
 Executive Summary (up to 1 page)	 Core:	/2 			done
 System Features (2 pages)	Core	/2	   			done	
-List of Web and AI sources used	Core					done				
+List of Web and AI sources used	Core	/3				done				
 Walkthrough with screenshots (up to 15 pages)	Core	/8		-Z		* prepped already	
 
 Hosting /10
 Running on cloud server	Advanced	/10				-Z
 
 Main/Home Page 3/14
-Search for a product by name	Core					done				
+Search for a product by name	Core	/1				done				
 Browse products by category	Core	/1				-Z		* updated listprod.jsp	
 List products (by search/browse)	Core	1/1			done	
 List products with image	Core	/1				-Z		* updated listprod.jsp	
