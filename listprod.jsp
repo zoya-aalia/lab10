@@ -15,59 +15,51 @@ else {
     <%
 }
 %>
-<style>
-        h1 {color:#1baa82;}
-        h2 {color:black;}
-</style>
+
 <head>
-<title>A & Z's Grocery Product Search</title>
+<title>A to Z Plant Nursery Product Search</title>
+    <style>
+        h1 {color:#a06296;}
+        h2 {color:#344f2e;}
+    </style>
 </head>
 <body>
 
-<h2>Search all products:</h2>
+<h2 style = "font-family:'Courier New'">Search All Products:</h2>
 <form method="get" action="listprod.jsp">
 <input type="text" name="productName" size="50">
-<input type="submit" value="Search">
-<input type="reset" value="Reset"> 
-<p>(Leave blank for all products)</p>
+<input type="submit" value="Search" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">
+<input type="reset" value="Reset" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;"> 
+<p style="font-family:'Optima';">(Leave blank for all products)</p>
 </form>
 
-<hr>
 
-<h2>Find New Bestsellers!</h2>
+<h2 style = "font-family:'Courier New'">Find New Bestsellers!</h2>
 <form method="get" action="listprod.jsp">
 	<input type="hidden" name="productName" value="">
-	<button type="submit" name="categoryId" value="1">All</button>
-	<button type="submit" name="categoryId" value="2">Bestsellers</button>
-	<button type="submit" name="categoryId" value="1">Houseplants</button>
-	<button type="submit" name="categoryId" value="2">Gardening Products</button>
+	<button type="submit" value="bestSelling" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Bestsellers</button>
 </form>
 
-<hr>
 
-<h2>Filter by category:</h2>
+<h2 style = "font-family:'Courier New'">Shop By Category:</h2>
 <form method="get" action="listprod.jsp">
-	<input type="hidden" name="productName" value="">
-	<button type="submit" name="categoryId" value="1">Flowers</button>
-	<button type="submit" name="categoryId" value="2">Herbs</button>
-	<button type="submit" name="categoryId" value="1">Houseplants</button>
-	<button type="submit" name="categoryId" value="2">Gardening Products</button>
+	<button type="submit" name="categoryId" value="1" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Flowers</button>
+	<button type="submit" name="categoryId" value="2" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Herbs</button>
+	<button type="submit" name="categoryId" value="3" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Houseplants</button>
+	<button type="submit" name="categoryId" value="4" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Gardening Products</button>
 </form>
 
-<hr>
 
-<h2>Filter by option:</h2>
+<h2 style = "font-family:'Courier New'">Filter Options:</h2>
 <form method="get" action="listprod.jsp">
     <input type="hidden" name="productName" value="">
     <select name="filterOption">
-        <option value="default">Select an option</option>
+        <option style="font-family:'Optima' value ='default'";>Select an option </option>
         <option value="bestSelling">Best-Selling Products</option>
         <option value="hasImage">Products with Images</option>
     </select>
-    <input type="submit" value="Apply Filter">
+    <input type="submit" value="Apply Filter" style="font-family:'Optima'; display: inline-block; padding: 5px 10px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">
 </form>
-
-<hr>
 
 <% 
 // Variable name now contains the search string the user entered
@@ -115,7 +107,8 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
         ResultSet productResultSet = productStatement.executeQuery();
 
         out.println("<h2>Products in Category</h2>");
-        out.println("<table border=\"1\"><th> </th>");
+        out.println("<table border=\"1\">");
+        out.println("<tr><th> </th>");
         out.println("<th>Product Name</th>");
         out.println("<th>Price</th>");
 
@@ -124,7 +117,7 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
             int productId = productResultSet.getInt("productId");
             String productName = productResultSet.getString("productName");
             double productPrice = productResultSet.getDouble("productPrice");
-
+        
             if (session.getAttribute("authenticatedUser") != null) {
                 // Create links for each product
                 out.println("<tr><td><a href='addcart.jsp?logged=True&id=" + productId +
@@ -137,6 +130,8 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
                         "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
             }
         }
+        out.println("</table>");
+        
 	} 
 	if ("bestSelling".equals(filterOption)) {
 		String bestSellingQuery = "SELECT TOP 5 productId, SUM(totalAmount) AS totalSales " +
@@ -147,9 +142,9 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
 		ResultSet bestSellingResultSet = bestSellingStatement.executeQuery();
 	
 		out.println("<h2>Best-Selling Products</h2>");
-		out.println("<table border=\"1\"><th> </th>");
-		out.println("<th>Product Name</th>");
-		out.println("<th>Total Sales</th>");
+        out.println("<table border=\"1\">");
+        out.println("<tr><th>Product Name</th><th>Total Sales</th></tr>");
+
 	
 		while (bestSellingResultSet.next()) {
 			int productId = bestSellingResultSet.getInt("productId");
@@ -167,8 +162,7 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
 			if (productDetailsResultSet.next()) {
 				String productName = productDetailsResultSet.getString("productName");
 	
-				out.println("<tr><td>" + productName + "</td><td>" + totalSales + "</td></tr>");
-			}
+                out.println("</table>");			}
 	
 			// Close the product details ResultSet and Statement
 			productDetailsResultSet.close();
@@ -180,35 +174,38 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
 		bestSellingStatement.close();
 	
 	}else if ("hasImage".equals(filterOption)) {
-        String productQuery = "SELECT * FROM product WHERE productImage IS NOT NULL";
-    	PreparedStatement productStatement = connection.prepareStatement(productQuery);
-    	ResultSet productResultSet = productStatement.executeQuery();
+            String productQuery = "SELECT * FROM product WHERE productImage IS NOT NULL";
+            PreparedStatement productStatement = connection.prepareStatement(productQuery);
+            ResultSet productResultSet = productStatement.executeQuery();
+        
+            out.println("<h2>Products with Images</h2>");
+            out.println("<table border=\"1\">");
+            out.println("<tr><th>Product Name</th><th>Price</th><th>Action</th></tr>");
 
-    	out.println("<h2>Products with Images</h2>");
-    	out.println("<table border=\"1\"><th> </th>");
-    	out.println("<th>Product Name</th>");
-    	out.println("<th>Price</th>");
-
-		// Print ResultSet
-        while (productResultSet.next()) {
-            int productId = productResultSet.getInt("productId");
-            String productName = productResultSet.getString("productName");
-            double productPrice = productResultSet.getDouble("productPrice");
-
-            if (session.getAttribute("authenticatedUser") != null) {
-                // Create links for each product
-                out.println("<tr><td><a href='addcart.jsp?logged=True&id=" + productId +
+            // Print ResultSet
+            while (productResultSet.next()) {
+                int productId = productResultSet.getInt("productId");
+                String productName = productResultSet.getString("productName");
+                double productPrice = productResultSet.getDouble("productPrice");
+        
+                out.println("<tr>");
+                out.println("<td>" + productName + "</td>");
+                out.println("<td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td>");
+                out.println("<td><a href='addcart.jsp?" + (session.getAttribute("authenticatedUser") != null ? "logged=True&" : "") +
+                        "id=" + productId +
                         "&name=" + URLEncoder.encode(productName, "UTF-8") +
-                        "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?logged=True&id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
-            } else {
-                // Create links for each product
-                out.println("<tr><td><a href='addcart.jsp?id=" + productId +
-                        "&name=" + URLEncoder.encode(productName, "UTF-8") +
-                        "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
+                        "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td>");
+                out.println("</tr>");
             }
-        }
-
-    } else {
+        
+            out.println("</table>");
+        
+            // Close connection
+            productResultSet.close();
+            productStatement.close();
+            connection.close();
+        
+        } else {
         // check search
         if (name != null && !name.isEmpty()) {
             String productQuery = "SELECT * FROM product WHERE productName LIKE ?";
@@ -240,26 +237,28 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
                 }
             }
 
+
             // Close connection
             productResultSet.close();
             productStatement.close();
             connection.close();
+
+
         } else {
             String productQuery = "SELECT * FROM product";
             PreparedStatement productStatement = connection.prepareStatement(productQuery);
             ResultSet productResultSet = productStatement.executeQuery();
 
             out.println("<h2>All Products</h2>");
-            out.println("<table border=\"1\"><th> </th>");
-            out.println("<th>Product Name</th>");
-            out.println("<th>Price</th>");
+		    out.println("<table border=\"1\"><th> </th>");
+		    out.println("<th>Product Name</th>");
+		    out.println("<th>Price</th>");
 
-            // Print out the ResultSet
             while (productResultSet.next()) {
                 int productId = productResultSet.getInt("productId");
                 String productName = productResultSet.getString("productName");
                 double productPrice = productResultSet.getDouble("productPrice");
-
+            
                 if (session.getAttribute("authenticatedUser") != null) {
                     // Create links for each product
                     out.println("<tr><td><a href='addcart.jsp?logged=True&id=" + productId +
@@ -272,6 +271,7 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
                             "&price=" + productPrice + "' style='color:#769d6d'>Add to Cart</a></td><td><a href='product.jsp?id=" + productId + "' style='color:#769d6d'>" + productName + "</a></td><td>" + NumberFormat.getCurrencyInstance().format(productPrice) + "</td></tr>");
                 }
             }
+            
 
             out.println("</table>");
 
@@ -281,14 +281,13 @@ try (Connection connection = DriverManager.getConnection(url, uid, pw); Statemen
             connection.close();
         }
     }
-} 
-catch (SQLException ex) {
-	System.err.println("SQLException: " + ex);
+}  catch (SQLException ex) {
+    ex.printStackTrace();
+} catch (Exception e) {
+    e.printStackTrace();
 }
 
-// Useful code for formatting currency values:
-// NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-// out.println(currFormat.format(5.0));	// Prints $5.00
+
 %>
 
 </body>
