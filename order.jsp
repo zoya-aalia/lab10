@@ -48,7 +48,7 @@ String paymentExpiryDate = request.getParameter("paymentExpiryDate");
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
 
 // Check if valid information was entered and if there are products in the shopping cart
-if (custId != null && productList != null && password != null && !productList.isEmpty() && address != null && city != null && state != null && postalCode != null && country != null && paymentType != null && paymentNumber!= null && paymentExpiryDate != null) {
+if (custId != null && productList != null && password != null && !productList.isEmpty()) {
     
     // Initialize Variables
     String url = "jdbc:sqlserver://cosc304_sqlserver:1433;DatabaseName=orders;TrustServerCertificate=True";
