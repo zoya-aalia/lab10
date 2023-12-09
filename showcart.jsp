@@ -86,7 +86,7 @@ else
 	out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
 			+"<td align=\"right\">"+currFormat.format(total)+"</td></tr>");
 	out.println("</table>");
-	out.println("<h2><a href='checkout.jsp' style='display: inline-block; padding: 10px 20px; background-color:#769d6d; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #769d6d;'>Contiue to Check Out!</a></h2>");
+	out.println("<h2><a href='checkout.jsp' style='display: inline-block; padding: 10px 20px; background-color:#769d6d; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #769d6d;'>Contiue to Check Out!</a></h2>");
 
 	String deleteProductId = request.getParameter("delete");
    	if (deleteProductId != null) {
@@ -96,6 +96,6 @@ else
    	}
 }
 %>
-<h2 align="center" ><a href="listprod.jsp" style="display: inline-block; padding: 10px 20px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Continue Shopping</a></h2>
+<h2><a href="listprod.jsp" style="display: inline-block; padding: 10px 20px; background-color:#5a7a53; color: #ffffff; text-decoration: none; border-radius: 20px; border: 1px solid #5a7a53;">Continue Shopping</a></h2>
 </body>
 </html> 
