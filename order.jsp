@@ -39,7 +39,7 @@ String state = request.getParameter("state");
 String postalCode = request.getParameter("postalCode");
 String country = request.getParameter("country");
 // Get payment 
-String paymentType = request.getParameter("paymentType);
+String paymentType = request.getParameter("paymentType");
 String paymentNumber = request.getParameter("paymentNumber");
 String paymentExpiryDate = request.getParameter("paymentExpiryDate");
 
@@ -95,7 +95,7 @@ if (custId != null && productList != null && password != null && !productList.is
             if (!first.isEmpty() && !last.isEmpty() && pass.equals(password)) {
 
                 //Save shipment info to customer table
-                String shipmentInsertCustQuery = "INSERT OR REPLACE INTO customer (address, city, state, postalCode, country) VALUES (?, ?, ?, ?, ?) WHERE customerId = ?";
+                String shipmentInsertCustQuery = "UPDATE customer SET address = ?, city = ?, state = ?, postalCode = ?, country = ? WHERE customerId = ?";
                 PreparedStatement shipmentStmt = connection.prepareStatement(shipmentInsertCustQuery);
                 shipmentStmt.setInt(1, Integer.parseInt(custId));
                 shipmentStmt.setString(2, address);
@@ -106,12 +106,12 @@ if (custId != null && productList != null && password != null && !productList.is
                 shipmentStmt.executeUpdate();
 
                 //Save payment info to paymentmethod table
-                String paymentInsertQuery = "INSERT OR REPLACE INTO paymentMethod(customerId, paymentType, paymentNumber, paymentExpiryDate) VALUES (?,?,?,?) WHERE customerId = ?";
+                String paymentInsertQuery = "UPDATE paymentMethod SET paymentType = ?, paymentNumber = ?, paymentExpiryDate = ? WHERE customerId = ?";
                 PreparedStatement paymentStmt = connection.prepareStatement(paymentInsertQuery, Statement.RETURN_GENERATED_KEYS);
-                paymentStmt.setInt(1, Integer.parseInt(custId));
-                paymentStmt.setString(2, paymentType);
-                paymentStmt.setString(3, paymentNumber);
-                paymentStmt.setString(4, paymentExpiryDate);
+                paymentStmt.setString(1, paymentType);
+                paymentStmt.setString(2, paymentNumber);
+                paymentStmt.setString(3, paymentExpiryDate);
+                paymentStmt.setInt(4, Integer.parseInt(custId));
                 paymentStmt.executeUpdate();
 
                 //Save order info to ordersummary table
@@ -192,10 +192,10 @@ if (custId != null && productList != null && password != null && !productList.is
 				    out.println("<p>Total Amount: " + NumberFormat.getCurrencyInstance().format(totalAmount) + "</p>");
 				    out.println("<h2>Order reference number: " + orderId + "</h2>");
 				    out.println("<h2>Customer Information | ID: " + custId + ", Name: " + first + " " + last + "</h2>");
-                    out.println("<h2>Shipping Information | Country: " + country + ", State: " + state + ", City: " + city + ", Address: " + address + ", Postal Code: " + postalCode + "</h2>);
+                    out.println("<h2>Shipping Information | Country: " + country + ", State: " + state + ", City: " + city + ", Address: " + address + ", Postal Code: " + postalCode + "</h2>");
 
                     out.println("<h2><a href='ship.jsp?orderId=" + orderId + "' style='color:#769d6d'>Continue to Finalize Shipment</a></h2>");
-                }
+                } 
             }
             else {
                 //Error message if customer id not in database
@@ -207,19 +207,16 @@ if (custId != null && productList != null && password != null && !productList.is
             connection.rollback();
             throw e;
         } 
-        finally {
-            connection.setAutoCommit(true);
-        }
-    } 
-    catch (SQLException e) {
-        //Handle exceptions
-        out.println("<p>Error: " + e.getMessage() + "</p>");
-    } 
+    }
+    catch (SQLException ex) {
+	        System.err.println("SQLException: " + ex);
+    }
 } 
 else {
     // Error message if customer id or shopping cart is invalid
     out.println("<p>Error: Invalid information or no items in the shopping cart. Please be sure that all fields are answered</p>");
-}
+    }
+    
 %>
 </BODY>
 </HTML>
