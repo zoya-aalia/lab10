@@ -143,37 +143,36 @@ CREATE TABLE review (
         ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO category(categoryName) VALUES (‘Flowers’);
-INSERT INTO category(categoryName) VALUES (‘Herbs’);
-INSERT INTO category(categoryName) VALUES (‘Houseplants’);
-INSERT INTO category(categoryName) VALUES (‘Gardening Products’);
+INSERT INTO category(categoryName) VALUES ('Flowers');
+INSERT INTO category(categoryName) VALUES ('Herbs');
+INSERT INTO category(categoryName) VALUES ('Houseplants');
+INSERT INTO category(categoryName) VALUES ('Gardening Products');
 
-
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Alstroemeria’, 1, ‘Also called Peruvian Lily or Lily of the Incas. Bundles include 5 bulbs.’, 15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Basil’, 2, ‘Scientific Name: Ocimum basilicum. Great for cooking Italian dishes. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Cast Iron Plant’, 3, ‘Scientific Name: Aspidistra elatior. Hearty plant that can handle low-light conditions. 10” Pot.’, 12.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Dahlia’, 1, ‘Member of the Asteraceae family. Blooms in summer and autumn. Performs best in rich, slightly acidic soil. Bundles include 5 bulbs.’, 15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘English Ivy’, 3, ‘Scientific Name: Hedera helix. Vining plant. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Forget Me Not’, 1, ‘Scientific Name: Myosotis. Blooms in spring and grows 5 to 12” tall. 10” pot’, 18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Gardenia’, 1, ‘Member of Rubiaceae family. Known for their waxy, fragrant flowers. 6” pot’, 15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Hoya’, 3, ‘Also known as wax or porcelain plants. Vining plant. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Iris’, 1, ‘Perennial flowers, grow best in zones 3-9. Bundles include 5 bulbs.’, 15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Jasmine’, 1, ‘Scientific Name: Jasminum. Fragrant star-shaped flowers. Blooms in spring and summer. 10” pot’, 18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Kentia Palm’, 3, ‘Scientific Name: Howea forsteriana. Hearty palm that livens a living space. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Lemon Balm’, 2, ‘Grows up to 2ft tall. Known for its lemony flavor in dishes. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Mint’, 2, ‘Scientific Name: Mentha. Perfect for a cup of tea. 10” Pot.’, 12.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Nerve Plant’, 3, ‘Scientific Name: Fittonia verschaffeltii. High water demand! When leaves start to wilt, give plenty of water with proper drainage. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Oregano’, 2, ‘Scientific Name: Origanum vulgare. Great for cooking Italian dishes and soups. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Parsely’, 2, ‘Scientific Name: Petroselinum crispum. Great for garnishing Italian dishes and soups. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Queen of the Night’, 1, ‘Scientific Name: Epiphyllum oxypetalum. Type of flowering cactus that blooms at night. 10” pot’, 25.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Rosemary’, 2, ‘Scientific Name: Salvia rosmarinus. Great for garnishing Italian dishes and soups. 6” Pot.’, 9.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Spider Plant’, 3, ‘Scientific Name: Chlorophytum comosum. Easy to propagate as it sprouts babies! Will produce many more plants as it grows. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Tulip’, 1, ‘Scientific Name: Tulipa. Multi-colored variety pack. Bundles include 5 bulbs.’, 15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Ursinia’, 1, ‘Also known as the ‘African Daisy’. Grows up to 2ft tall. 10” pot’, 18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Venus Fly Trap’, 3, ‘Scientific Name: Dionaea muscipula. Easy to propagate as it sprouts babies! Will produce many more plants as it grows. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Watermelon Peperomia’, 3, ‘Scientific Name: Peperomia argyreia. Easy to care for given medium-lighting. 4” pot’, 7.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘X-tra Nutrient Soil’, 4, ‘Soil with coco husk and perlite and general use fertilizer for maximum potential for your plants. 5 lb bag’, 20.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES(‘Zennia’, 1, ‘Member of the Asteraceae family. Prefer fertile, moist, and well-drained soil.10” pot’, 25.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Alstroemeria', 1, 'Also called Peruvian Lily or Lily of the Incas. Bundles include 5 bulbs.', 15.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Basil', 2, 'Scientific Name: Ocimum basilicum. Great for cooking Italian dishes. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Cast Iron Plant', 3, 'Scientific Name: Aspidistra elatior. Hearty plant that can handle low-light conditions. 10” Pot.', 12.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Dahlia', 1, 'Member of the Asteraceae family. Blooms in summer and autumn. Performs best in rich, slightly acidic soil. Bundles include 5 bulbs.', 15.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('English Ivy', 3, 'Scientific Name: Hedera helix. Vining plant. 4” pot', 7.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Forget Me Not', 1, 'Scientific Name: Myosotis. Blooms in spring and grows 5 to 12” tall. 10” pot', 18.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Gardenia', 1, 'Member of Rubiaceae family. Known for their waxy, fragrant flowers. 6” pot', 15.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Hoya', 3, 'Also known as wax or porcelain plants. Vining plant. 4” pot', 7.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Iris', 1, 'Perennial flowers, grow best in zones 3-9. Bundles include 5 bulbs.', 15.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Jasmine', 1, 'Scientific Name: Jasminum. Fragrant star-shaped flowers. Blooms in spring and summer. 10” pot', 18.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Kentia Palm', 3, 'Scientific Name: Howea forsteriana. Hearty palm that livens a living space. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Lemon Balm', 2, 'Grows up to 2ft tall. Known for its lemony flavor in dishes. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Mint', 2, 'Scientific Name: Mentha. Perfect for a cup of tea. 10” Pot.', 12.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Nerve Plant', 3, 'Scientific Name: Fittonia verschaffeltii. High water demand! When leaves start to wilt, give plenty of water with proper drainage. 4” pot', 7.00;
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Oregano', 2, 'Scientific Name: Origanum vulgare. Great for cooking Italian dishes and soups. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Parsely', 2, 'Scientific Name: Petroselinum crispum. Great for garnishing Italian dishes and soups. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Queen of the Night', 1, 'Scientific Name: Epiphyllum oxypetalum. Type of flowering cactus that blooms at night. 10” pot', 25.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Rosemary', 2, 'Scientific Name: Salvia rosmarinus. Great for garnishing Italian dishes and soups. 6” Pot.', 9.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Spider Plant', 3, 'Scientific Name: Chlorophytum comosum. Easy to propagate as it sprouts babies! Will produce many more plants as it grows. 4” pot', 7.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Tulip', 1, 'Scientific Name: Tulipa. Multi-colored variety pack. Bundles include 5 bulbs.', 15.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Ursinia', 1, 'Also known as the ‘African Daisy’. Grows up to 2ft tall. 10” pot', 18.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Venus Fly Trap', 3, 'Scientific Name: Dionaea muscipula. Easy to propagate as it sprouts babies! Will produce many more plants as it grows. 4” pot', 7.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Watermelon Peperomia', 3, 'Scientific Name: Peperomia argyreia. Easy to care for given medium-lighting. 4” pot', 7.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('X-tra Nutrient Soil', 4, 'Soil with coco husk and perlite and general use fertilizer for maximum potential for your plants. 5 lb bag', 20.00);
+INSERT INTO product(productName, categoryId, productDesc, productPrice) VALUES('Zennia', 1, 'Member of the Asteraceae family. Prefer fertile, moist, and well-drained soil.10” pot', 25.00);
 
 
 INSERT INTO warehouse(warehouseName) VALUES ('Main warehouse');
