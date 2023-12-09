@@ -33,7 +33,7 @@ Cart stored in database between sessions	Basic	/3
 
 Checkout 1/9
 Checkout with customer id	Core	1/1				done
-Checkout with payment/shipment info	Basic	/2			-Z		*updated on checkout.jsp, order.jsp
+Checkout with payment/shipment info	Basic	/2			-Z		-bugs fixed, issue with first if statement
 Checkout with data validation	Basic	/2				
 Multiple shipments per order supported	Advanced	/2				Note: Requires DB change.
 Calculate taxes/shipping (by items/state)	Advanced	/2			Note: Requires DB change.
@@ -62,7 +62,7 @@ Edit item inventory by store/warehouse	Advanced	/3
 
 Administrator Portal 2/19				
 Secured by login	Core	1/1					done
-List all customers	Core	/1						
+List all customers	Core	/1					-Z (optional)	
 List report showing total sales/orders	Core	1/1			done
 Report with a graph	Advanced	/3				
 Add new product	Basic	/2							
