@@ -51,9 +51,9 @@ String name = String.valueOf(request.getParameter("productName"));
 String categoryId = String.valueOf(request.getParameter("categoryId"));
 
 //Initialize Variables
-String url = "jdbc:sqlserver://cosc304_sqlserver:1433;DatabaseName=orders;TrustServerCertificate=True";
-String uid = "sa";
-String pw = "304#sa#pw";
+String url = "db-mysql-tor1-67398-do-user-15341079-0.c.db.ondigitalocean.com";
+String uid = "doadmin";
+String pw = "AVNS_dSm1J79fUKXrKAX4BpD";
 
 //Load driver class
         
