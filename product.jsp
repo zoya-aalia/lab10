@@ -12,25 +12,24 @@
 <%@ include file="jdbc.jsp" %>
 
 <html>
-<%
-if (session.getAttribute("authenticatedUser") != null) {
-    %>
-    <%@ include file="headerAcc.jsp"%>
     <%
-}
-else {
+    if (session.getAttribute("authenticatedUser") != null) {
+        %>
+        <%@ include file="headerAcc.jsp"%>
+        <%
+    }
+    else {
+        %>
+        <%@ include file="header.jsp"%>
+        <%
+    }
     %>
-    <%@ include file="header.jsp"%>
-    <%
-}
-%>
 <style>
-        h1 {color:#1baa82;}
+        h1 {color:#ffffff;}
         h2 {color:black;}
 </style>
 <head>
 <title>A & Z's Grocery - Product Information</title>
-<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -64,7 +63,7 @@ try {
 
         
         // Display product info
-            out.println("<h1>" + productName + "</h1>");
+            out.println("<h2>" + productName + "</h2>");
             out.println("<p>" + productDesc + "</p>");
             out.println("<p>Price: " + NumberFormat.getCurrencyInstance().format(productPrice) + "</p>");
             /* TODO: If there is a productImageURL, display using IMG tag */
@@ -117,12 +116,11 @@ if (session.getAttribute("authenticatedUser") != null) {
             "&name=" + URLEncoder.encode(productName, "UTF-8") +
             "&price=" + productPrice;
 }
-
 // Link for Continue Shopping
 String continueShoppingLink = "listprod.jsp";
 
-out.println("<a href='" + addToCartLink + "'>Add to Cart;)</a>");
-out.println("<a href='" + continueShoppingLink + "'>Continue Shopping!</a>");
+out.println("<hr><a href='" + addToCartLink + "' style='display: inline-block; padding: 10px 20px; background-color:#769d6d; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #769d6d;'>Add to Cart</a>");
+out.println("<a href='" + continueShoppingLink + "' style='display: inline-block; padding: 10px 20px; background-color:#769d6d; color: #ffffff; text-decoration: none; border-radius: 5px; border: 1px solid #769d6d;'>Continue Shopping!</a>");
     } else {
         out.println("<p>Product not found :( sorry!</p>");
     }
